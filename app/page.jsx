@@ -1,5 +1,15 @@
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <section className="w-full flex-center flex-col">
+      <h1 className="head_text text-center">
+        Відкривай і поширюй
+        <br />
+        <span className="orange_gradient text-center">
+          глибокі християнські цитати
+        </span>
+      </h1>
+    </section>
+  );
 };
 
 export default Home;
