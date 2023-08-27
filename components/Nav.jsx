@@ -125,7 +125,9 @@ const Nav = () => {
                     signIn(provider.id);
                   }}
                   className="black_btn"
-                ></button>
+                >
+                  Sign In With {provider.name}
+                </button>
               ))}
           </>
         )}
