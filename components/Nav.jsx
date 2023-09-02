@@ -61,7 +61,6 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => {
-                    console.log(provider);
                     signIn(provider.id);
                   }}
                   className="black_btn"

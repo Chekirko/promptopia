@@ -23,7 +23,7 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/quote");
+      const response = await fetch("/api/quote", { next: { revalidate: 60 } });
       const data = await response.json();
       setQuotes(data);
     };
