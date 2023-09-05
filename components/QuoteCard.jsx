@@ -8,6 +8,9 @@ import Image from "next/image";
 const QuoteCard = ({ quote, handleTagClick, handleDelete, handleEdit }) => {
   const [copied, setCopied] = useState("");
 
+  const { data: session } = useSession();
+  const pathName = usePathname();
+
   const handleCopy = () => {
     setCopied(quote.quote);
     navigator.clipboard.writeText(quote.quote);
@@ -57,6 +60,23 @@ const QuoteCard = ({ quote, handleTagClick, handleDelete, handleEdit }) => {
       >
         {quote.tag}
       </p>
+
+      {session?.user.id === quote.creator._id && pathName === "/profile" && (
+        <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
+          <p
+            className="font-inter text-sm green_gradient cursor-pointer"
+            onClick={handleEdit}
+          >
+            Змінити
+          </p>
+          <p
+            className="font-inter text-sm orange_gradient cursor-pointer"
+            onClick={handleDelete}
+          >
+            Видалити
+          </p>
+        </div>
+      )}
     </div>
   );
 };
